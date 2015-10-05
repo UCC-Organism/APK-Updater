@@ -1,0 +1,114 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1343\cocoasubrtf140
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25480\viewh13660\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\b\fs24 \cf0 STEP 1: SETUP NODE.JS AND START APK SERVER\
+
+\b0 \
+\
+	A. Install node.js (node-v0.10.33.pkg)\
+	B. Install forever using npm\
+		
+\f1\b $> 
+\fs22 \CocoaLigature0 npm install forever -g
+\f0\b0\fs24 \CocoaLigature1 \
+	C. When Node.js is installed properly (with forever) - open a terminal and cd to 
+\b apk-updater
+\b0  and execute the command (download all software and configure the system)\
+		
+\f1\b $> 
+\fs22 \CocoaLigature0 . install.sh\
+	
+\f0\b0\fs24 \CocoaLigature1 D. Now to start the 
+\b apk-updater
+\b0  \
+		
+\f1\b $> 
+\fs22 \CocoaLigature0 forever start start.js\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\b0\fs24 \cf0 \CocoaLigature1 		{{\NeXTGraphic Screen Shot 2014-11-07 at 16.26.53.png \width12920 \height1380
+}¬}
+\f1\b\fs22 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\b0\fs24 \cf0 \CocoaLigature1 \
+	E. apk-updater should now be started - to make sure it is, open a browser and point it to: 
+\b localhost:8088/organism
+\b0  (or serverip:
+\b 8088/organism
+\b0 )- you should see a list containing asks that are in the folder 
+\b apk-repository
+\b0 \
+	\
+	{{\NeXTGraphic Screen Shot 2014-11-07 at 16.29.12.png \width11420 \height1540
+}¬}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 	at the moment the 
+\b apk-repository 
+\b0 should be empty - hence the empty list above. \
+\
+	{{\NeXTGraphic Screen Shot 2014-11-07 at 16.33.44.png \width8260 \height3260
+}¬}\
+\
+	The idea with apk-updater is that whatever file it finds in 
+\b apk-repository  
+\b0 will be server.\
+\
+	F. Next step is to add an apk to and see if the system serves the new file (for example here - ucc_organims-0.apk)\
+ \
+	{{\NeXTGraphic Screen Shot 2014-11-07 at 16.34.00.png \width8240 \height3000
+}¬}\
+	\
+	now open a browser and point it to: 
+\b localhost:8088/organism
+\b0  (or serverip:
+\b 8088/organism
+\b0 ) - you should see a list similar to:\
+\
+	{{\NeXTGraphic Screen Shot 2014-11-07 at 16.34.24.png \width17980 \height1060
+}¬}\
+\
+	G. To see the logs of apk-updaterm issue the command\
+		
+\f1\b $> 
+\fs22 \CocoaLigature0 forever list \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\b0\fs24 \cf0 \CocoaLigature1 		{{\NeXTGraphic Screen Shot 2014-11-07 at 16.50.47.png \width14320 \height1160
+}¬}
+\f1\b\fs22 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\b0\fs24 \cf0 \CocoaLigature1 \
+		identify the \'93uid\'94 \'97 in the above it\'92s 0\
+\
+		now to see the log, issue the command:\
+		
+\f1\b $> 
+\fs22 \CocoaLigature0 forever logs <index>
+\f0\b0\fs24 \CocoaLigature1 \
+		where <index> is the \'93uid\'94\
+		{{\NeXTGraphic Screen Shot 2014-11-07 at 16.46.46.png \width8980 \height1640
+}¬}\
+\
+		whatever requests made to the server will show in the log (the above example being an odroid requesting an update)\
+\
+	H. To stop the apk-updater, issue the command\
+		
+\f1\b $> 
+\fs22 \CocoaLigature0 forever stop <index>
+\f0\b0\fs24 \CocoaLigature1 \
+		where <index> is the \'93uid\'94\
+\
+
+\b \
+}

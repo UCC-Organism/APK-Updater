@@ -1,0 +1,16 @@
+{
+  "name": "apk-updater",
+  "version": "0.0.0",
+  "description": "updates apk remotly from this server",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gauthiier",
+  "license": "BSD",
+  "dependencies": {
+    "apk-updater": "^0.1.1",
+    "body-parser": "^1.9.2",
+    "express": "^4.10.1"
+  }
+}
